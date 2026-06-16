@@ -1,18 +1,18 @@
-# 📚 Learning Roadmap — HyAn / AnHysen Backend
+# Learning Roadmap — HyAn / AnHysen Backend
 
-> Lộ trình học cá nhân hoá cho nền tảng **Java/Spring + auth**, hướng tới làm backend cho nền tảng AnHysen (Rust engine, Onion architecture, async workers, Kubernetes).
+> Lộ trình học cá nhân hoá cho nền tảng Java/Spring + auth, hướng tới làm backend cho nền tảng AnHysen (Rust engine, Onion architecture, async workers, Kubernetes).
 >
-> Nguyên tắc tuyển chọn: **cô đọng — chất lượng cao — kiến thức/trang lớn nhất**. Tránh tài liệu lê thê.
+> Nguyên tắc tuyển chọn: cô đọng — chất lượng cao — kiến thức/trang lớn nhất. Tránh tài liệu lê thê.
 >
-> Độ dài: ⭐ ngắn · 🟡 vừa · 🔴 dài (chỉ dùng tra cứu / để dành)
+> Độ dài: [Ngắn] · [Vừa] · [Dài] (chỉ dùng tra cứu / để dành)
 
 ---
 
-## 🎯 3 gap chính cần lấp (theo thứ tự ưu tiên)
+## 3 gap chính cần lấp (theo thứ tự ưu tiên)
 
-1. **Rust ở mức production** — gap lớn nhất
-2. **Async messaging** — RabbitMQ, transactional outbox, worker pattern
-3. **Kubernetes & IaC** — học sau cùng, đọc dần là đủ
+1. Rust ở mức production — gap lớn nhất
+2. Async messaging — RabbitMQ, transactional outbox, worker pattern
+3. Kubernetes & IaC — học sau cùng, đọc dần là đủ
 
 > Onion architecture & Auth gần như đã biết (nền Spring layered + 4 repo auth) → chỉ cần "lật tư duy".
 
@@ -20,16 +20,16 @@
 
 ## 1. Rust — đầu tư nhiều nhất
 
-- [ ] ⭐ **A Half-Hour to Learn Rust** — đọc ĐẦU TIÊN (~30 phút), cô đọng nhất cho người đã biết lập trình
+- [ ] [Ngắn] A Half-Hour to Learn Rust — đọc ĐẦU TIÊN (~30 phút), cô đọng nhất cho người đã biết lập trình
   https://fasterthanli.me/articles/a-half-hour-to-learn-rust
-- [ ] 🟡 **Comprehensive Rust (Google)** — súc tích, slide-style, có bài tập
+- [ ] [Vừa] Comprehensive Rust (Google) — súc tích, slide-style, có bài tập
   https://google.github.io/comprehensive-rust/
-- [ ] — **Rustlings** — bài tập làm song song (học bằng tay, không phải đọc)
+- [ ] Rustlings — bài tập làm song song (học bằng tay, không phải đọc)
   https://github.com/rust-lang/rustlings
-- [ ] 🔴 **The Rust Book** — CHỈ tra cứu ch. 1–10 + 13 khi bí, đừng đọc tuần tự hết
+- [ ] [Dài] The Rust Book — CHỈ tra cứu ch. 1–10 + 13 khi bí, đừng đọc tuần tự hết
   https://doc.rust-lang.org/book/
 
-**Trọng tâm bắt buộc:** `ownership` & `borrowing` (không có GC như Java), `Option<T>` (thay `null`/`Optional`), `Result<T,E>` + toán tử `?` (thay `try/catch`), `trait` (≈ `interface`).
+Trọng tâm bắt buộc: `ownership` & `borrowing` (không có GC như Java), `Option<T>` (thay `null`/`Optional`), `Result<T,E>` + toán tử `?` (thay `try/catch`), `trait` (≈ `interface`).
 
 | Java (đã quen) | Rust |
 |---|---|
@@ -43,63 +43,63 @@
 
 ## 2. Async / Tokio — sau khi nắm Rust cơ bản
 
-- [ ] 🟡 **Tokio Tutorial** (chính thức) — async runtime backend HyAn dùng
+- [ ] [Vừa] Tokio Tutorial (chính thức) — async runtime backend HyAn dùng
   https://tokio.rs/tokio/tutorial
-- [ ] 🟡 **Understanding Async Rust (fasterthanli.me)** — giải thích *vì sao* async Rust khó
+- [ ] [Vừa] Understanding Async Rust (fasterthanli.me) — giải thích vì sao async Rust khó
   https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-deep
 
 ---
 
 ## 3. Onion / Clean Architecture — gần như đã biết, chỉ "lật tư duy"
 
-- [ ] ⭐ **Herberto Graça — "DDD, Hexagonal, Onion, Clean, CQRS… How I put it all together"** — bức tranh tổng hay nhất
+- [ ] [Ngắn] Herberto Graça — "DDD, Hexagonal, Onion, Clean, CQRS… How I put it all together" — bức tranh tổng hay nhất
   https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/
-- [ ] ⭐ **Jeffrey Palermo — "The Onion Architecture" (4 phần gốc, ngắn)**
+- [ ] [Ngắn] Jeffrey Palermo — "The Onion Architecture" (4 phần gốc, ngắn)
   https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/
-- [ ] 🟡 **Clean Architecture** (đã có PDF trong repo) — chỉ cần ch. 22 "The Clean Architecture"
+- [ ] [Vừa] Clean Architecture (đã có PDF trong repo) — chỉ cần ch. 22 "The Clean Architecture"
 
-**Điểm khác Spring:** trong Onion, **domain (lõi) KHÔNG biết gì về DB/HTTP/framework**; dependency chỉ hướng vào trong.
+Điểm khác Spring: trong Onion, domain (lõi) KHÔNG biết gì về DB/HTTP/framework; dependency chỉ hướng vào trong.
 
 | Spring (đã quen) | Onion |
 |---|---|
 | `@RestController` | Infrastructure (vòng ngoài) |
 | `@Service` | Application |
-| Entity + business rules | **Domain (lõi)** |
+| Entity + business rules | Domain (lõi) |
 | `@Repository` / JPA | Infrastructure (vòng ngoài) |
 
 ---
 
 ## 4. Async messaging / Outbox / RabbitMQ — gap thật, chưa từng làm
 
-- [ ] ⭐ **microservices.io — Transactional Outbox pattern** (Chris Richardson) — đúng pattern HyAn đang viết
+- [ ] [Ngắn] microservices.io — Transactional Outbox pattern (Chris Richardson) — đúng pattern HyAn đang viết
   https://microservices.io/patterns/data/transactional-outbox.html
-- [ ] 🟡 **RabbitMQ Official Tutorials** (ch. 1–3) — hands-on: queue / exchange / ack
+- [ ] [Vừa] RabbitMQ Official Tutorials (ch. 1–3) — hands-on: queue / exchange / ack
   https://www.rabbitmq.com/tutorials
 
 ---
 
 ## 5. Kubernetes — đọc dần, học sau cùng
 
-- [ ] ⭐ **The Illustrated Children's Guide to Kubernetes** (CNCF, ~7') — hiểu khái niệm bằng hình
+- [ ] [Ngắn] The Illustrated Children's Guide to Kubernetes (CNCF, ~7') — hiểu khái niệm bằng hình
   https://www.cncf.io/phippy/the-childrens-illustrated-guide-to-kubernetes/
-- [ ] 🟡 **Learn Kubernetes Basics** (interactive, không cần cài gì)
+- [ ] [Vừa] Learn Kubernetes Basics (interactive, không cần cài gì)
   https://kubernetes.io/docs/tutorials/kubernetes-basics/
-- [ ] 🔴 **The Kubernetes Book — Nigel Poulton** — để dành khi cần đi sâu
+- [ ] [Dài] The Kubernetes Book — Nigel Poulton — để dành khi cần đi sâu
 
-**Khái niệm tối thiểu cần nắm:** pod, deployment, namespace, node, cluster, Day-2 ops (provision/heal/scale).
+Khái niệm tối thiểu cần nắm: pod, deployment, namespace, node, cluster, Day-2 ops (provision/heal/scale).
 
 ---
 
 ## 6. Auth nâng cao — củng cố thế mạnh sẵn có
 
-- [ ] ⭐ **passkeys.dev** — HyAn dùng passkeys (bạn đã giỏi JWT, đây là phần mới)
+- [ ] [Ngắn] passkeys.dev — HyAn dùng passkeys (bạn đã giỏi JWT, đây là phần mới)
   https://passkeys.dev/
-- [ ] 🟡 **Zitadel Docs — Concepts** — identity provider HyAn dùng
+- [ ] [Vừa] Zitadel Docs — Concepts — identity provider HyAn dùng
   https://zitadel.com/docs
 
 ---
 
-## ✅ Tuần này — chỉ cần 5 thứ (theo thứ tự)
+## Tuần này — chỉ cần 5 thứ (theo thứ tự)
 
 1. [ ] A Half-Hour to Learn Rust (30')
 2. [ ] Herberto Graça — Onion/Clean all together (1 bài)
@@ -109,15 +109,15 @@
 
 ---
 
-## 🛠 Dự án thực hành đề xuất
+## Dự án thực hành đề xuất
 
-Nâng cấp repo **`auth-management`** (Rust) từ starter 1-commit → auth service tử tế:
-**Axum + tokio + JWT + RBAC + test**, tổ chức theo **Onion**.
-→ Học Rust qua đúng thế mạnh auth, tạo sample khớp với mảng identity của HyAn.
+Nâng cấp repo `auth-management` (Rust) từ starter 1-commit thành auth service tử tế:
+Axum + tokio + JWT + RBAC + test, tổ chức theo Onion.
+Học Rust qua đúng thế mạnh auth, tạo sample khớp với mảng identity của HyAn.
 
 ---
 
-## 📖 Sách có sẵn trong repo này
+## Sách có sẵn trong repo này
 
 - `Clean Architecture A Craftsman Guide to Software Structure and Design.pdf`
 - `Clean Code.pdf`
