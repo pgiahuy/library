@@ -1,31 +1,28 @@
 # Note học backend (Rust)
 
-mục tiêu: đang mạnh Java/Spring + auth, giờ học thêm để làm backend Rust hiện đại.
-nguyên tắc chọn tài liệu: ngắn gọn, chất, đọc là thu được nhiều — né mấy bài lê thê.
-
-cần lấp 3 chỗ yếu, theo thứ tự:
+Cần lấp 3 chỗ yếu, theo thứ tự:
 1. Rust ở mức làm thật — yếu nhất, ưu tiên
-2. async messaging (RabbitMQ, transactional outbox, worker)
-3. k8s + IaC — để sau, đọc dần thôi
+2. Async messaging (RabbitMQ, transactional outbox, worker)
+3. K8s + IaC — để sau, đọc dần thôi
 
 Onion với auth coi như biết rồi (đã làm Spring layered + mấy project auth) → chỉ cần lật lại tư duy.
 
-(đánh dấu độ dài: [ngắn] [vừa] [dài=chỉ tra cứu])
+(Đánh dấu độ dài: [Ngắn] [Vừa] [Dài=Chỉ tra cứu])
 
 ---
 
 ## 1. Rust — cày nhiều nhất ở đây
 
-- [ ] [ngắn] A Half-Hour to Learn Rust — đọc cái này TRƯỚC, ~30p, cô đọng nhất cho người đã biết code
+- [ ] [Ngắn] A Half-Hour to Learn Rust — đọc cái này TRƯỚC, ~30p, cô đọng nhất cho người đã biết code
   https://fasterthanli.me/articles/a-half-hour-to-learn-rust
-- [ ] [vừa] Comprehensive Rust (Google) — gọn, kiểu slide, có bài tập
+- [ ] [Vừa] Comprehensive Rust (Google) — gọn, kiểu slide, có bài tập
   https://google.github.io/comprehensive-rust/
 - [ ] Rustlings — bài tập, làm song song cho quen tay
   https://github.com/rust-lang/rustlings
-- [ ] [dài] The Rust Book — chỉ mở ch.1-10 + 13 khi bí, đừng đọc hết tuần tự
+- [ ] [Dài] The Rust Book — chỉ mở ch.1-10 + 13 khi bí, đừng đọc hết tuần tự
   https://doc.rust-lang.org/book/
 
-nhớ kỹ mấy cái này (khác Java):
+Nhớ kỹ mấy cái này (khác Java):
 - ownership & borrowing — ko có GC, đây là chỗ dễ khùng nhất
 - Option<T> thay cho null / Optional
 - Result<T,E> + dấu ? thay cho try/catch
